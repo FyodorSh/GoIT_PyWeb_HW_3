@@ -1,6 +1,7 @@
 import collections
 import itertools
 import multiprocessing
+from multiprocessing import cpu_count
 from timeit import default_timer
 import logging
 
@@ -52,15 +53,16 @@ def execute_time(func):
     def delta_time(*args):
         t1 = default_timer()
         delta = default_timer() - t1
-        logging.info(f'Run rime {delta}')
+        logging.info(f'Run time {delta}')
         return func(*args)
     return delta_time
 
 
 @execute_time
 def factorize(*number):
+    max_workers = cpu_count() * 2 + 1
     print("Pool started...")
-    with multiprocessing.Pool() as Pool:
+    with multiprocessing.Pool(max_workers) as Pool:
         result = Pool.map(get_sorted_divisors, number)
     return result
 
