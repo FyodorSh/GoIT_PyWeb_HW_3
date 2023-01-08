@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "goit-pyweb-hw-3"
+version = "0.1.0"
+description = ""
+authors = ["Fyodor Shevchenko <fyodor.shevchenko@gmail.com>"]
+readme = "README.md"
+packages = [{include = "goit_pyweb_hw_3"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+py7zr = "^0.20.2"
+patool = "^1.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
